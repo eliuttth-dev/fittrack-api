@@ -1,0 +1,23 @@
+Endpoints
+
+User Authentication
+    POST /register: Register a new user.
+    POST /login: Authenticate a user and return a token.
+    GET /logout: Log out a user.
+
+Workouts
+    POST /workouts: Create a new workout.
+    GET /workouts: Get a list of all workouts for the authenticated user.
+    GET /workouts/{id}: Get details of a specific workout.
+    PUT /workouts/{id}: Update a specific workout.
+    DELETE /workouts/{id}: Delete a specific workout.
+
+Exercises
+    POST /exercises: Add a new exercise to a workout.
+    GET /exercises: Get a list of all exercises for the authenticated user.
+    GET /exercises/{id}: Get details of a specific exercise.
+    PUT /exercises/{id}: Update a specific exercise.
+    DELETE /exercises/{id}: Delete a specific exercise.
+
+Progress
+    GET /progress: Get the user's progress, such as total workouts, total time spent, and performance improvements.

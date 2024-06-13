@@ -6,8 +6,10 @@ import (
     "context"
     "log"
     "fmt"
+	"os"
     "go.mongodb.org/mongo-driver/mongo"
     "go.mongodb.org/mongo-driver/mongo/options"
+    "github.com/joho/godotenv"
 )
 
 var (
@@ -17,7 +19,16 @@ var (
 
 // Connect initializes a connection to MongoDB
 func Connect() {
-    clientOptions := options.Client().ApplyURI("mongodb+srv://eliuttth-dev-mongodb:Eliuth25012002$@cluster0.35hgh47.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+
+	errorEnv := godotenv.Load()
+
+	if errorEnv != nil {
+		log.Fatalf("Error loading .env file: %v", errorEnv)
+	}
+
+	dbHost := os.Getenv("DB_HOST")
+
+	clientOptions := options.Client().ApplyURI(fmt.Sprintf("mongodb+srv://%s", dbHost))
 
     var err error
     client, err = mongo.Connect(context.TODO(), clientOptions)

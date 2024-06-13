@@ -21,8 +21,6 @@
 .DS_Store
 
 # Ignore the Go module cache
-/go.sum
-/go.mod
 
 # Ignore the local binary folder
 /bin/
